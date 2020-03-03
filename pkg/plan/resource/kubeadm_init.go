@@ -257,7 +257,7 @@ func buildKubeadmInitPlan(path string, ignorePreflightErrors string, useIPTables
 		// certificates of the primary control plane in the kubeadm-certs
 		// Secret, and prints the value for --certificate-key to STDOUT.
 		&Run{Script: plan.ParamString(
-			withoutProxy("kubeadm init --config=%s --ignore-preflight-errors=%s --experimental-upload-certs"),
+			withoutProxy("kubeadm init --config=%s --ignore-preflight-errors=%s --upload-certs"),
 			&path, &ignorePreflightErrors),
 			UndoResource: buildKubeadmRunInitUndoPlan(),
 			Output:       output,
